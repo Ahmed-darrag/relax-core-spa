@@ -1,0 +1,100 @@
+/* ==========================================================================
+   ملف جديد كامل — احفظيه في:
+   app/styles/04-components/rc-sections.scss
+   ثم ضيفي هذا السطر في app/styles/app.scss (مع باقي الـ @use/@import الموجودة):
+   @use "04-components/rc-sections";
+   ========================================================================== */
+
+.rc-hero {
+  position: relative;
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+.rc-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(38,53,39,.25) 0%, rgba(38,53,39,.55) 55%, rgba(38,53,39,.85) 100%);
+}
+.rc-hero__content {
+  position: relative;
+  z-index: 2;
+  color: var(--rc-cream-100);
+  padding: 0 6vw clamp(3rem, 6vw, 6rem);
+  max-width: 820px;
+}
+.rc-hero__title {
+  font-size: clamp(2.25rem, 4vw + 1rem, 4rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.rc-hero__subtitle { font-size: 1.15rem; opacity: .9; margin-bottom: 2rem; max-width: 520px; }
+.rc-hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.rc-btn-primary {
+  background: var(--rc-forest-800);
+  color: var(--rc-cream-100);
+  border: 1px solid rgba(198,161,91,.45);
+  border-radius: var(--rc-radius-sm);
+  padding: .9rem 2rem;
+  display: inline-block;
+  transition: all .35s ease;
+}
+.rc-btn-primary:hover { background: var(--rc-gold-400); color: var(--rc-espresso-900); }
+
+.rc-btn-ghost {
+  background: transparent;
+  color: inherit;
+  border: 1px solid currentColor;
+  border-radius: var(--rc-radius-sm);
+  padding: .85rem 1.8rem;
+  display: inline-block;
+}
+
+.rc-section { padding: var(--rc-section-py) 6vw; }
+.rc-section--dark { background: var(--rc-forest-800); color: var(--rc-cream-100); }
+.rc-section__head { text-align: center; margin-bottom: 2.5rem; }
+.rc-eyebrow { display: block; letter-spacing: .15em; font-size: .8rem; margin-bottom: .6rem; color: var(--rc-gold-400); }
+
+.rc-tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+.rc-tab {
+  background: none; cursor: pointer;
+  border: 1px solid rgba(48,39,31,.12);
+  border-radius: 999px; padding: .6rem 1.6rem; color: var(--rc-espresso-900);
+}
+.rc-tab.is-active { background: var(--rc-forest-800); color: var(--rc-cream-100); border-color: var(--rc-forest-800); }
+
+.rc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+
+.rc-card {
+  background: var(--rc-cream-100);
+  border: 1px solid rgba(48,39,31,.12);
+  border-radius: var(--rc-radius-md);
+  box-shadow: var(--rc-shadow-warm);
+}
+.rc-service-card { padding: 1.75rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.25rem; }
+.rc-service-card__meta { display: flex; justify-content: space-between; margin-top: 1rem; font-size: .95rem; }
+.rc-service-card__meta span:last-child { color: var(--rc-gold-500); font-weight: 700; }
+
+.rc-offer-card {
+  background: var(--rc-forest-700); border: 1px solid rgba(241,235,221,.12);
+  color: var(--rc-cream-100); padding: 2rem; text-align: center; border-radius: var(--rc-radius-md);
+}
+.rc-offer-card__num { font-size: .85rem; opacity: .7; }
+.rc-offer-card__price { font-size: 2rem; font-weight: 700; margin: .5rem 0 1.25rem; color: var(--rc-gold-400); }
+.rc-offer-card__items { list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-direction: column; gap: .5rem; font-size: .9rem; opacity: .9; }
+
+.rc-branch-card { overflow: hidden; }
+.rc-branch-card__img { height: 220px; background-size: cover; background-position: center; }
+.rc-branch-card__body { padding: 1.75rem; }
+.rc-branch-card__addr { opacity: .75; font-size: .9rem; margin: .4rem 0; }
+.rc-branch-card__hours { font-size: .85rem; color: var(--rc-gold-500); margin-bottom: 1rem; }
+.rc-branch-card__actions { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.rc-branch-card__book { display: block; text-align: center; padding: .8rem; border-top: 1px solid rgba(48,39,31,.12); font-weight: 600; }
+
+@media (max-width: 640px) {
+  .rc-hero { min-height: 78vh; }
+  .rc-hero__content { padding: 0 5vw 3rem; }
+}
