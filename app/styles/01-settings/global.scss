@@ -18,10 +18,37 @@ $main-text-color: var(--main-text-color);
   --bg-gray: #c6c7ce1a;
   --color-grey: #f5f7f9;
   --color-light-grey: #eeeeee;
-  
+
   /* font-size */
   --font-sm: 0.8685714286rem;
-  
+
   /* plugins */
   --mm-ocd-width: calc(100% - 51px);
+
+  /* ---- Relax Core Spa — Design tokens ---- */
+  --rc-forest-900: #263527;
+  --rc-forest-800: #283528;
+  --rc-forest-700: #303D2C;
+  --rc-olive-600:  #5C6545;
+
+  --rc-sand-300: #E1D4C1;
+  --rc-sand-400: #D8C8B2;
+  --rc-sand-500: #CDBDA6;
+
+  --rc-cream-100: #F1EBDD;
+  --rc-cream-200: #E9E0D0;
+
+  --rc-walnut-600: #6B472B;
+  --rc-walnut-700: #5A3E28;
+  --rc-espresso-900: #30271F;
+
+  --rc-gold-300: #D0AF6B;
+  --rc-gold-400: #C6A15B;
+  --rc-gold-500: #B99552;
+
+  --rc-radius-sm: 6px;
+  --rc-radius-md: 14px;
+  --rc-radius-lg: 28px;
+  --rc-shadow-warm: 0 20px 40px -20px rgba(48,39,31,0.35);
+  --rc-section-py: clamp(3rem, 6vw, 7rem);
 }
