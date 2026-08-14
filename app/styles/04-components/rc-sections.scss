@@ -1,8 +1,11 @@
 /* ==========================================================================
-   ملف جديد كامل — احفظيه في:
-   app/styles/04-components/rc-sections.scss
-   ثم ضيفي هذا السطر في app/styles/app.scss (مع باقي الـ @use/@import الموجودة):
-   @use "04-components/rc-sections";
+   Relax Core Spa — الهوية البصرية المحدثة
+   ألوان: ذهبي دافئ + أصفر فاتح + أخضر غامق
+   ========================================================================== */
+
+
+/* ==========================================================================
+   HERO
    ========================================================================== */
 
 .rc-hero {
@@ -13,11 +16,16 @@
   display: flex;
   align-items: flex-end;
 }
+
 .rc-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(38,53,39,.25) 0%, rgba(38,53,39,.55) 55%, rgba(38,53,39,.85) 100%);
+  background: linear-gradient(180deg,
+      rgba(38, 53, 39, .18) 0%,
+      rgba(38, 53, 39, .48) 55%,
+      rgba(38, 53, 39, .82) 100%);
 }
+
 .rc-hero__content {
   position: relative;
   z-index: 2;
@@ -25,76 +33,607 @@
   padding: 0 6vw clamp(3rem, 6vw, 6rem);
   max-width: 820px;
 }
+
 .rc-hero__title {
   font-size: clamp(2.25rem, 4vw + 1rem, 4rem);
   font-weight: 700;
   margin-bottom: 1rem;
 }
-.rc-hero__subtitle { font-size: 1.15rem; opacity: .9; margin-bottom: 2rem; max-width: 520px; }
-.rc-hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.rc-hero__subtitle {
+  font-size: 1.15rem;
+  opacity: .9;
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+
+.rc-hero__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
 
 .rc-btn-primary {
-  background: var(--rc-forest-800);
-  color: var(--rc-cream-100);
-  border: 1px solid rgba(198,161,91,.45);
-  border-radius: var(--rc-radius-sm);
+  background: var(--rc-gold-500);
+  color: var(--rc-forest-900);
+  border: 1px solid var(--rc-gold-400);
+  border-radius: 6px;
   padding: .9rem 2rem;
   display: inline-block;
+  font-weight: 600;
   transition: all .35s ease;
 }
-.rc-btn-primary:hover { background: var(--rc-gold-400); color: var(--rc-espresso-900); }
+
+.rc-btn-primary:hover {
+  background: var(--rc-gold-400);
+  color: var(--rc-forest-900);
+  transform: translateY(-2px);
+}
 
 .rc-btn-ghost {
   background: transparent;
   color: inherit;
   border: 1px solid currentColor;
-  border-radius: var(--rc-radius-sm);
+  border-radius: 6px;
   padding: .85rem 1.8rem;
   display: inline-block;
+  transition: all .35s ease;
 }
 
-.rc-section { padding: var(--rc-section-py) 6vw; }
-.rc-section--dark { background: var(--rc-forest-800); color: var(--rc-cream-100); }
-.rc-section__head { text-align: center; margin-bottom: 2.5rem; }
-.rc-eyebrow { display: block; letter-spacing: .15em; font-size: .8rem; margin-bottom: .6rem; color: var(--rc-gold-400); }
+.rc-btn-ghost:hover {
+  background: var(--rc-gold-400);
+  border-color: var(--rc-gold-400);
+  color: var(--rc-forest-900);
+}
 
-.rc-tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+
+/* ==========================================================================
+   SECTIONS
+   ========================================================================== */
+
+.rc-section {
+  padding: var(--rc-section-py) 6vw;
+}
+
+.rc-section--dark {
+  background: var(--rc-forest-800);
+  color: var(--rc-cream-100);
+}
+
+.rc-section__head {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.rc-eyebrow {
+  display: block;
+  letter-spacing: .15em;
+  font-size: .8rem;
+  margin-bottom: .6rem;
+  color: var(--rc-gold-500);
+}
+
+
+/* ==========================================================================
+   TABS
+   ========================================================================== */
+
+.rc-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
 .rc-tab {
-  background: none; cursor: pointer;
-  border: 1px solid rgba(48,39,31,.12);
-  border-radius: 999px; padding: .6rem 1.6rem; color: var(--rc-espresso-900);
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid rgba(38, 53, 39, .25);
+  border-radius: 5px;
+  padding: .6rem 1.6rem;
+  color: var(--rc-forest-900);
+  transition: all .3s ease;
 }
-.rc-tab.is-active { background: var(--rc-forest-800); color: var(--rc-cream-100); border-color: var(--rc-forest-800); }
 
-.rc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.rc-tab:hover {
+  background: var(--rc-gold-400);
+  border-color: var(--rc-gold-500);
+}
+
+.rc-tab.is-active {
+  background: var(--rc-forest-800);
+  color: var(--rc-gold-400);
+  border-color: var(--rc-forest-800);
+}
+
+
+/* ==========================================================================
+   GRID
+   ========================================================================== */
+
+.rc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+
+/* ==========================================================================
+   CARDS
+   المربعات أصبحت ذهبية مثل لون التصميم المطلوب
+   ========================================================================== */
 
 .rc-card {
-  background: var(--rc-cream-100);
-  border: 1px solid rgba(48,39,31,.12);
-  border-radius: var(--rc-radius-md);
-  box-shadow: var(--rc-shadow-warm);
+  background: var(--rc-gold-400) !important;
+  color: var(--rc-forest-900);
+  border: 1px solid rgba(38, 53, 39, .15);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(48, 39, 31, .12);
+  overflow: hidden;
+  transition: all .3s ease;
 }
-.rc-service-card { padding: 1.75rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.25rem; }
-.rc-service-card__meta { display: flex; justify-content: space-between; margin-top: 1rem; font-size: .95rem; }
-.rc-service-card__meta span:last-child { color: var(--rc-gold-500); font-weight: 700; }
+
+.rc-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(48, 39, 31, .18);
+}
+
+
+/* ==========================================================================
+   SERVICE CARDS
+   ========================================================================== */
+
+.rc-service-card {
+  background: var(--rc-gold-400) !important;
+  color: var(--rc-forest-900);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  border-radius: 6px;
+}
+
+.rc-service-card h3,
+.rc-service-card h4 {
+  color: var(--rc-forest-900);
+}
+
+.rc-service-card p {
+  color: rgba(38, 53, 39, .82);
+}
+
+.rc-service-card__meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: .95rem;
+}
+
+.rc-service-card__meta span:last-child {
+  color: var(--rc-forest-800);
+  font-weight: 700;
+}
+
+
+/* ==========================================================================
+   OFFER CARDS
+   ========================================================================== */
 
 .rc-offer-card {
-  background: var(--rc-forest-700); border: 1px solid rgba(241,235,221,.12);
-  color: var(--rc-cream-100); padding: 2rem; text-align: center; border-radius: var(--rc-radius-md);
+  background: var(--rc-forest-800);
+  border: 1px solid var(--rc-gold-500);
+  color: var(--rc-cream-100);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(48, 39, 31, .14);
 }
-.rc-offer-card__num { font-size: .85rem; opacity: .7; }
-.rc-offer-card__price { font-size: 2rem; font-weight: 700; margin: .5rem 0 1.25rem; color: var(--rc-gold-400); }
-.rc-offer-card__items { list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-direction: column; gap: .5rem; font-size: .9rem; opacity: .9; }
 
-.rc-branch-card { overflow: hidden; }
-.rc-branch-card__img { height: 220px; background-size: cover; background-position: center; }
-.rc-branch-card__body { padding: 1.75rem; }
-.rc-branch-card__addr { opacity: .75; font-size: .9rem; margin: .4rem 0; }
-.rc-branch-card__hours { font-size: .85rem; color: var(--rc-gold-500); margin-bottom: 1rem; }
-.rc-branch-card__actions { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 1rem; }
-.rc-branch-card__book { display: block; text-align: center; padding: .8rem; border-top: 1px solid rgba(48,39,31,.12); font-weight: 600; }
+.rc-offer-card__num {
+  font-size: .85rem;
+  opacity: .7;
+}
+
+.rc-offer-card__price {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: .5rem 0 1.25rem;
+  color: var(--rc-gold-400);
+}
+
+.rc-offer-card__items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  font-size: .9rem;
+  opacity: .9;
+}
+
+
+/* ==========================================================================
+   BRANCH CARDS
+   ========================================================================== */
+
+.rc-branch-card {
+  overflow: hidden;
+  background: var(--rc-gold-400) !important;
+  border-radius: 6px;
+}
+
+.rc-branch-card__img {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.rc-branch-card__body {
+  padding: 1.75rem;
+  color: var(--rc-forest-900);
+}
+
+.rc-branch-card__addr {
+  opacity: .75;
+  font-size: .9rem;
+  margin: .4rem 0;
+}
+
+.rc-branch-card__hours {
+  font-size: .85rem;
+  color: var(--rc-forest-800);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.rc-branch-card__actions {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.rc-branch-card__book {
+  display: block;
+  text-align: center;
+  padding: .8rem;
+  border-top: 1px solid rgba(38, 53, 39, .15);
+  font-weight: 600;
+  color: var(--rc-forest-900);
+  transition: all .3s ease;
+}
+
+.rc-branch-card__book:hover {
+  background: var(--rc-gold-500);
+}
+
+
+/* ==========================================================================
+   CATEGORY CARDS
+   ========================================================================== */
+
+.rc-cat-card {
+  overflow: hidden;
+  background: var(--rc-gold-400) !important;
+  border-radius: 6px;
+}
+
+.rc-cat-card__img {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.rc-cat-card__body {
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--rc-forest-900);
+}
+
+.rc-cat-card__body a {
+  color: var(--rc-forest-800);
+  font-weight: 600;
+}
+
+.rc-cat-card__body a:hover {
+  color: var(--rc-gold-600);
+}
+
+
+/* ==========================================================================
+   GIFT SECTION
+   ========================================================================== */
+
+.rc-gift {
+  position: relative;
+  min-height: 280px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--rc-cream-100);
+}
+
+.rc-gift__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(38, 53, 39, .72),
+      rgba(38, 53, 39, .9));
+}
+
+.rc-gift__content {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+  padding: 2rem;
+}
+
+.rc-gift__content p {
+  margin: 1rem 0 1.5rem;
+  opacity: .9;
+}
+
+
+/* ==========================================================================
+   HEADER — RELAX CORE SPA
+   ========================================================================== */
+
+.store-header {
+  background-color: var(--rc-forest-800) !important;
+}
+
+.store-header .bg-white,
+.store-header [class*="bg-white"] {
+  background-color: var(--rc-forest-800) !important;
+}
+
+.store-header,
+.store-header a,
+.store-header button,
+.store-header span,
+.store-header svg {
+  color: var(--rc-cream-100) !important;
+}
+
+.store-header .s-search-input {
+  background-color: rgba(241, 235, 221, 0.1) !important;
+  color: var(--rc-cream-100) !important;
+  border-color: rgba(198, 161, 91, .3) !important;
+}
+
+.store-header .btn--circle-gray,
+.store-header .btn--rounded-gray {
+  background-color: rgba(241, 235, 221, 0.1) !important;
+}
+
+.store-header a:hover {
+  color: var(--rc-gold-400) !important;
+}
+
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.store-footer,
+.store-footer__inner {
+  background-color: var(--rc-forest-900) !important;
+  color: var(--rc-cream-100) !important;
+}
+
+.store-footer h3 {
+  color: var(--rc-gold-400) !important;
+}
+
+.store-footer a {
+  color: var(--rc-cream-100) !important;
+}
+
+.store-footer a:hover {
+  color: var(--rc-gold-400) !important;
+  opacity: 1 !important;
+}
+
+.store-footer .social-link {
+  border-color: rgba(241, 235, 221, 0.25) !important;
+}
+
+.copyright-text p {
+  color: var(--rc-cream-100) !important;
+  opacity: .6;
+}
+
+
+/* ==========================================================================
+   CUSTOM TOPBAR
+   ========================================================================== */
+
+.rc-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--rc-forest-900);
+  color: var(--rc-cream-100);
+  padding: 1rem 6vw;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.rc-topbar__logo {
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--rc-gold-400);
+}
+
+.rc-topbar__nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.rc-topbar__nav a {
+  color: var(--rc-cream-100);
+  font-size: .95rem;
+}
+
+.rc-topbar__nav a:hover {
+  color: var(--rc-gold-400);
+}
+
+.rc-topbar__cta {
+  padding: .6rem 1.5rem;
+}
+
+
+/* ==========================================================================
+   PAGE BACKGROUND
+   الخلفية أصبحت أصفر/ذهبي فاتح بدل البيج
+   ========================================================================== */
+
+body {
+  background-color: var(--rc-gold-100) !important;
+  color: var(--rc-forest-900);
+}
+
+
+/* ==========================================================================
+   جميع العناصر الفاتحة داخل الصفحة
+   ========================================================================== */
+
+.rc-section:not(.rc-section--dark) {
+  background-color: var(--rc-gold-100);
+}
+
+
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
+
+.rc-section a {
+  transition: color .3s ease, background-color .3s ease;
+}
+
+
+/* ==========================================================================
+   إخفاء هيدر سلة الافتراضي في الصفحة الرئيسية فقط
+   ========================================================================== */
+
+body.rc-home .store-header {
+  display: none !important;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  .rc-topbar {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .rc-topbar__nav {
+    justify-content: center;
+  }
+
+  .rc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rc-service-card,
+  .rc-offer-card {
+    padding: 1.5rem;
+  }
+}
+
 
 @media (max-width: 640px) {
-  .rc-hero { min-height: 78vh; }
-  .rc-hero__content { padding: 0 5vw 3rem; }
+
+  .rc-hero {
+    min-height: 78vh;
+  }
+
+  .rc-hero__content {
+    padding: 0 5vw 3rem;
+  }
+
+  .rc-hero__title {
+    font-size: 2.3rem;
+  }
+
+  .rc-hero__subtitle {
+    font-size: 1rem;
+  }
+
+  .rc-tabs {
+    gap: .6rem;
+  }
+
+  .rc-tab {
+    padding: .55rem 1.2rem;
+  }
+}
+
+.rc-contact-social {
+  background: var(--rc-forest-900);
+  color: var(--rc-cream-100);
+  padding: 3rem 6vw;
+  text-align: center;
+}
+
+.rc-contact-social__inner h2 {
+  color: var(--rc-gold-400);
+  margin-bottom: 1.5rem;
+}
+
+.rc-contact-social__icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.rc-contact-social__icons a {
+  border: 1px solid rgba(241, 235, 221, .3);
+  border-radius: 999px;
+  padding: .6rem 1.5rem;
+  color: var(--rc-cream-100);
+  font-size: .9rem;
+}
+
+.rc-contact-social__icons a:hover {
+  border-color: var(--rc-gold-400);
+  color: var(--rc-gold-400);
+}
+
+.rc-contact-social__phones {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: .9rem;
+  opacity: .9;
+}
+
+.rc-contact-social__phones a {
+  color: var(--rc-cream-100);
+}
+
+.rc-contact-social__phones span {
+  color: var(--rc-gold-400);
+  font-weight: 600;
 }

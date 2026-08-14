@@ -1,48 +1,16 @@
-// ملف جديد — احفظيه في: app/components/home/RcServices.tsx
 import { useState } from 'react';
-
-interface Service {
-  name: string;
-  duration?: string;
-  price: string;
-  bookingUrl?: string;
-}
-
-// بيانات موثّقة من قائمة الأسعار المرفوعة — يفضّل لاحقًا ربطها بمنتجات Salla
-const MASSAGE: Service[] = [
-  { name: 'مساج سويدي', duration: '45-60', price: '150-180' },
-  { name: 'مساج تايلاندي', duration: '45-60', price: '160-190' },
-  { name: 'مساج رياضي', duration: '45-60', price: '160-190' },
-  { name: 'مساج شياتسو', duration: '45-60', price: '170-200' },
-  { name: 'مساج كاسات الهواء', duration: '60', price: '220' },
-  { name: 'مساج الأحجار الساخنة', duration: '60', price: '200' },
-  { name: 'مساج VIP', duration: '75', price: '250' },
-  { name: 'مساج ملكي', duration: '90', price: '300' },
-  { name: 'مساج أقدام', duration: '30', price: '160' },
-];
-
-const HAMMAM: Service[] = [
-  { name: 'حمام مغربي عادي', duration: '30-60', price: '150-200' },
-  { name: 'حمام مغربي عطري', duration: '60', price: '200' },
-  { name: 'حمام طين البحر الميت', duration: '60', price: '200' },
-  { name: 'الحمام الملكي', duration: '90', price: '300' },
-];
-
-const PEDICURE: Service[] = [
-  { name: 'العناية بالأظافر', duration: '45', price: '180' },
-  { name: 'جاكوزي', duration: '30', price: '110' },
-  { name: 'علبة بديكير', price: '50' },
-];
+import { rcContent } from '../../config/rc-content';
 
 const TABS = [
-  { key: 'massage', label: 'المساج', data: MASSAGE },
-  { key: 'hammam', label: 'الحمام المغربي', data: HAMMAM },
-  { key: 'pedicure', label: 'البديكير', data: PEDICURE },
+  { key: 'massage', label: 'المساج' },
+  { key: 'hammam', label: 'الحمام المغربي' },
+  { key: 'pedicure', label: 'البديكير' },
 ] as const;
 
-export function RcServices({ bookingUrl = '#booking' }: { bookingUrl?: string }) {
+export function RcServices() {
   const [active, setActive] = useState<typeof TABS[number]['key']>('massage');
-  const current = TABS.find((t) => t.key === active)!;
+  const { services, bookingUrl } = rcContent;
+  const currentData = services[active];
 
   return (
     <section id="services" className="rc-section">
@@ -64,7 +32,7 @@ export function RcServices({ bookingUrl = '#booking' }: { bookingUrl?: string })
       </div>
 
       <div className="rc-grid">
-        {current.data.map((service) => (
+        {currentData.map((service) => (
           <article key={service.name} className="rc-card rc-service-card">
             <div>
               <h3>{service.name}</h3>

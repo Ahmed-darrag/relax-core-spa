@@ -1,3 +1,4 @@
+import { RcContactSocial } from '../components/home/RcContactSocial';
 import React, { lazy, Suspense, useEffect } from 'react';
 import { HeadContent, Scripts, Outlet, useNavigate, useRouterState } from '@tanstack/react-router';
 import { TwilightProvider } from '@salla.sa/twilight-theme-engine';
@@ -10,24 +11,24 @@ import themeTranslations from 'virtual:twilight/theme-translations';
 import devSchema from 'virtual:twilight/schema';
 import '../styles/app.css';
 
-// Dev-only: reads the theme's local twilight.json (settings + components),
-// fills defaults, and lets you edit them live. Imported from the engine's `/dev`
-// subpath under an import.meta.env.DEV gate so it is tree-shaken from prod builds.
+import { RcTopBar } from '../components/home/RcTopBar';
+import { RcHero } from '../components/home/RcHero';
+import { RcServiceCategories } from '../components/home/RcServiceCategories';
+import { RcServices } from '../components/home/RcServices';
+import { RcOffers } from '../components/home/RcOffers';
+import { RcBranches } from '../components/home/RcBranches';
+import { RcGift } from '../components/home/RcGift';
+
 const DevSettingsWidget = import.meta.env.DEV
   ? lazy(() =>
-      import('@salla.sa/twilight-theme-engine/dev').then((m) => ({ default: m.DevSettingsWidget }))
-    )
+    import('@salla.sa/twilight-theme-engine/dev').then((m) => ({ default: m.DevSettingsWidget }))
+  )
   : null;
 
 export const Route = createTwilightRootRoute()({
   shellComponent: RootComponent,
 });
 
-// Local-dev only: for a domainless store the SDK's links carry the store's
-// `/{username}/` base segment, which Salla's edge strips in production before
-// the theme sees it. There's no edge locally, so those links 404. Strip the
-// segment here (username from the SDK config). Gated on localhost — production,
-// where the edge already handles it, is never touched.
 function DevStoreBasePathRedirect() {
   const navigate = useNavigate();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -53,8 +54,15 @@ function DevStoreBasePathRedirect() {
   return null;
 }
 
+function useIsHomePath(): boolean {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const stripped = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
+  return stripped === '/' || stripped === '';
+}
+
 function RootComponent() {
   const ctx = getTwilightContext();
+  const isHome = useIsHomePath();
 
   return (
     <html lang={ctx.locale} dir={ctx.dir} suppressHydrationWarning>
@@ -64,7 +72,7 @@ function RootComponent() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <HeadContent />
       </head>
-      <body suppressHydrationWarning>
+      <body suppressHydrationWarning className={isHome ? 'rc-home' : undefined}>
         <noscript>
           To get full functionality of this site you need to enable JavaScript.
           <a href="https://www.enable-javascript.com/" rel="noreferrer" target="_blank">
@@ -74,7 +82,20 @@ function RootComponent() {
         </noscript>
         <TwilightProvider translations={themeTranslations}>
           <DevStoreBasePathRedirect />
-          <Outlet />
+          {isHome ? (
+            <>
+              <RcTopBar />
+              <RcHero />
+              <RcServiceCategories />
+              <RcServices />
+              <RcOffers />
+              <RcBranches />
+              <RcGift />
+              <RcContactSocial />
+            </>
+          ) : (
+            <Outlet />
+          )}
         </TwilightProvider>
         <TanStackRouterDevtools position="bottom-right" />
         {DevSettingsWidget && (

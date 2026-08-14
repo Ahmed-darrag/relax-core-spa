@@ -22,3 +22,5 @@ allowBuilds:
   sharp: true
   utf-8-validate: true
   workerd: true
+overrides:
+  wrangler: 4.120.1

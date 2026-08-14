@@ -29,7 +29,7 @@ $main-text-color: var(--main-text-color);
   --rc-forest-900: #263527;
   --rc-forest-800: #283528;
   --rc-forest-700: #303D2C;
-  --rc-olive-600:  #5C6545;
+  --rc-olive-600: #5C6545;
 
   --rc-sand-300: #E1D4C1;
   --rc-sand-400: #D8C8B2;
@@ -43,12 +43,13 @@ $main-text-color: var(--main-text-color);
   --rc-espresso-900: #30271F;
 
   --rc-gold-300: #D0AF6B;
+  --rc-gold-100: #F0DEB0;
   --rc-gold-400: #C6A15B;
   --rc-gold-500: #B99552;
 
   --rc-radius-sm: 6px;
   --rc-radius-md: 14px;
   --rc-radius-lg: 28px;
-  --rc-shadow-warm: 0 20px 40px -20px rgba(48,39,31,0.35);
+  --rc-shadow-warm: 0 20px 40px -20px rgba(48, 39, 31, 0.35);
   --rc-section-py: clamp(3rem, 6vw, 7rem);
 }

@@ -1,16 +1,8 @@
-// ملف جديد — احفظيه في: app/components/home/RcOffers.tsx
+import { rcContent } from '../../config/rc-content';
 
-// موثّقة حرفيًا من صورة العروض المرفوعة — 6 عروض
-const OFFERS = [
-  { n: 1, price: 400, items: ['45 دقيقة مساج سويدي', '30 دقيقة حمام مغربي', 'بخار', 'بديكير', 'بوكس'] },
-  { n: 2, price: 450, items: ['60 دقيقة مساج سويدي', '30 دقيقة حمام مغربي', 'بخار', 'بديكير', 'بوكس'] },
-  { n: 3, price: 250, items: ['45 دقيقة مساج سويدي', '30 دقيقة حمام مغربي'] },
-  { n: 4, price: 350, items: ['60 دقيقة مساج مكس', '60 دقيقة حمام مغربي'] },
-  { n: 5, price: 300, items: ['45 دقيقة مساج سويدي', 'بديكير كامل لليد والرجل', 'اسكراب', 'بوكس'] },
-  { n: 6, price: 450, items: ['60 دقيقة مساج مكس', '60 دقيقة حمام مغربي', 'بديكير كامل لليد والرجل', 'اسكراب', 'بوكس'] },
-];
+export function RcOffers() {
+  const { offers, bookingUrl } = rcContent;
 
-export function RcOffers({ bookingUrl = '#booking' }: { bookingUrl?: string }) {
   return (
     <section id="packages" className="rc-section rc-section--dark">
       <div className="rc-section__head">
@@ -19,7 +11,7 @@ export function RcOffers({ bookingUrl = '#booking' }: { bookingUrl?: string }) {
       </div>
 
       <div className="rc-grid">
-        {OFFERS.map((offer) => (
+        {offers.map((offer) => (
           <article key={offer.n} className="rc-offer-card">
             <span className="rc-offer-card__num">العرض {offer.n}</span>
             <div className="rc-offer-card__price">{offer.price} <small>ر.س</small></div>
