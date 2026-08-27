@@ -9,8 +9,8 @@ export const rcContent = {
     hero: {
         // اسم صورة الخلفية — لازم تكون مرفوعة في public/assets/images/
         image: 'rc-hero.jpg',
-        title: 'استرخاء يليق بك',
-        subtitle: 'اكتشف تجربة Relax Core Spa للعناية والاسترخاء للرجال',
+        title: 'The Address of Luxury',
+        subtitle: 'للفخامة عنوان',
     },
 
     // ---- العروض الستة ----
