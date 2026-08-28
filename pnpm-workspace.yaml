@@ -23,4 +23,4 @@ allowBuilds:
   utf-8-validate: true
   workerd: true
 overrides:
-  wrangler: 4.120.1
+  wrangler: 4.126.0
