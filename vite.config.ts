@@ -10,16 +10,20 @@ export default defineConfig(async () => ({
     ...(await twilightReact({
       localesDir: './locales',
     })),
-    visualizer({
-      open: false,
-      gzipSize: true,
-      brotliSize: true,
-      filename: 'dist/stats.html',
-    }),
+    ...(process.env.ANALYZE === 'true'
+      ? [
+          visualizer({
+            open: false,
+            gzipSize: true,
+            brotliSize: true,
+            filename: 'dist/stats.html',
+          }),
+        ]
+      : []),
   ],
   resolve: {
     alias: {
-      '~': path.resolve(__dirname, './'),
+      '~': path.resolve(import.meta.dirname, './'),
     },
     // Singleton libs whose React context must be shared between the app and the
     // engine's bundled screens/components (they call useSuspenseQuery /

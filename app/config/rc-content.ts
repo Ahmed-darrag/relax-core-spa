@@ -8,7 +8,7 @@ export const rcContent = {
     // ---- الهيرو (أول قسم في الصفحة) ----
     hero: {
         // اسم صورة الخلفية — لازم تكون مرفوعة في public/assets/images/
-        image: 'rc-hero.jpg',
+        image: 'rc-hero.webp',
         title: 'The Address of Luxury',
         subtitle: 'للفخامة عنوان',
     },
@@ -53,7 +53,7 @@ export const rcContent = {
     branches: [
         {
             name: 'فرع الدمام',
-            image: 'rc-branch-dammam.jpg',
+            image: 'rc-branch-dammam.webp',
             address: 'حي الروضة، شارع عبدالله بن ثهيل الحارثي، الدمام',
             phone: '0508899770',
             maps: 'https://maps.app.goo.gl/hJjvsdsyPwnPpFTSA',
@@ -61,7 +61,7 @@ export const rcContent = {
         },
         {
             name: 'فرع الخبر',
-            image: 'rc-branch-khobar.jpg',
+            image: 'rc-branch-khobar.webp',
             address: 'حي الخزامي، طريق الملك خالد، الخبر',
             phone: '0508899770',
             maps: 'https://maps.app.goo.gl/zv26CSL1qvVvrDUj6',
@@ -69,7 +69,7 @@ export const rcContent = {
         },
         {
             name: 'فرع الظهران',
-            image: 'rc-branch-dhahran.jpg',
+            image: 'rc-branch-dhahran.webp',
             address: 'الظهران، حي الضوحة الجنوبية. شارع الملك سعود بن عبدالعزير (',
             phone: '0508899770',
             maps: 'https://maps.app.goo.gl/k3U1MZCBYPjoxFQBA',
@@ -78,16 +78,16 @@ export const rcContent = {
     ],
     // ---- كروت الخدمات (بديكير / حمام مغربي / مساج) ----
     serviceCategories: [
-        { title: 'المساج', desc: 'مجموعة متنوعة من جلسات المساج', image: 'rc-cat-massage.jpg' },
-        { title: 'الحمام المغربي', desc: 'تجربة مغربية أصيلة لتنظيف وتنعيم البشرة', image: 'rc-cat-hammam.jpg' },
-        { title: 'البديكير', desc: 'عناية متكاملة لليدين والقدمين', image: 'rc-cat-pedicure.jpg' },
+        { title: 'المساج', desc: 'مجموعة متنوعة من جلسات المساج', image: 'rc-cat-massage.webp' },
+        { title: 'الحمام المغربي', desc: 'تجربة مغربية أصيلة لتنظيف وتنعيم البشرة', image: 'rc-cat-hammam.webp' },
+        { title: 'البديكير', desc: 'عناية متكاملة لليدين والقدمين', image: 'rc-cat-pedicure.webp' },
     ],
 
     // ---- قسم الإهداء ----
     gift: {
         title: 'أهدِ تجربة استرخاء',
         subtitle: 'بطاقات إهداء Relax Core Spa هي الهدية المثالية لمن تحب',
-        image: 'rc-gift.jpg',
+        image: 'rc-gift.webp',
     },
     // ---- قسم التواصل والسوشيال ميديا ----
     social: {
