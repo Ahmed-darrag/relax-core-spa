@@ -8,6 +8,7 @@ import {
   useRouterState,
 } from '@tanstack/react-router';
 import { TwilightProvider } from '@salla.sa/twilight-theme-engine';
+import { SallaTrustBadges } from '@salla.sa/twilight-components-react/trust-badges';
 import {
   createTwilightRootRoute,
   getTwilightContext,
@@ -152,6 +153,10 @@ function RootComponent() {
             )}
 
             <Outlet />
+
+            <footer data-testid="store-footer-compliance" className="container py-6">
+              <SallaTrustBadges />
+            </footer>
           </>
         </TwilightProvider>
 
