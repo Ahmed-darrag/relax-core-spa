@@ -1,0 +1,11 @@
+{% extends "layouts.master" %}
+{% block content %}
+  <div class="s-blocks-wrapper s-before-products-list !mt-0">{% hook 'product.index.before_products_group_with_filter' %}</div>
+  <div class="container container--products-list">
+    {% if filters %}<salla-filters id="filters-menu"></salla-filters>{% endif %}
+    <salla-products-list source="{{ page.slug }}" source-value="{{ page.id }}"></salla-products-list>
+  </div>
+  <div class="s-blocks-wrapper s-after-products-list">{% hook 'product.index.after_products_group_with_filter' %}</div>
+  {% if store.settings.category.testimonial_enabled %}{% component 'home.testimonials' %}{% endif %}
+  <div class="s-blocks-wrapper s-after-testimonials">{% hook 'product.index.after_testimonials' %}</div>
+{% endblock %}
