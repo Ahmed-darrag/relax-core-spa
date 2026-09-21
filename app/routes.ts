@@ -30,6 +30,10 @@
  * ];
  * ```
  */
-// import { route } from "@tanstack/virtual-file-routes";
+import { route } from '@tanstack/virtual-file-routes';
 
-export const routes = [];
+export const routes = [
+  route('/$slug/p{$id}', 'product-single-compliance.tsx'),
+  route('/$slug/c{$id}', 'product-list-compliance.tsx'),
+  route('/$slug/page-{$id}', 'page-single-compliance.tsx'),
+];

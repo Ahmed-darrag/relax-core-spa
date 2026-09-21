@@ -23,9 +23,9 @@ import { Route as pendingOrdersRouteImport } from './routes/pending-orders'
 import { Route as searchRouteImport } from './routes/search'
 import { Route as testimonialsRouteImport } from './routes/testimonials'
 import { Route as slugDotbrandIdRouteImport } from './routes/$slug.brand-$id'
-import { Route as slugDotcidRouteImport } from './routes/$slug.c$id'
-import { Route as slugDotpageIdRouteImport } from './routes/$slug.page-$id'
-import { Route as slugDotpidRouteImport } from './routes/$slug.p$id'
+import { Route as productListComplianceRouteImport } from './routes/product-list-compliance'
+import { Route as pageSingleComplianceRouteImport } from './routes/page-single-compliance'
+import { Route as productSingleComplianceRouteImport } from './routes/product-single-compliance'
 import { Route as slugDottagIdRouteImport } from './routes/$slug.tag-$id'
 import { Route as accountDotnotificationsRouteImport } from './routes/account.notifications'
 import { Route as accountDotordersRouteImport } from './routes/account.orders'
@@ -132,19 +132,19 @@ const slugDotbrandIdRoute = slugDotbrandIdRouteImport.update({
   getParentRoute: () =>
     DotDotDotDotNode_modulesDotpnpmAtsallaDotsaChar43twilightThemeEn_27dc901de7ce932acdf2976211f906c7Node_modulesAtsallaDotsaTwilightThemeEngineDottwilightLocaleRoute,
 } as any)
-const slugDotcidRoute = slugDotcidRouteImport.update({
+const productListComplianceRoute = productListComplianceRouteImport.update({
   id: '/$slug/c{$id}',
   path: '/$slug/c{$id}',
   getParentRoute: () =>
     DotDotDotDotNode_modulesDotpnpmAtsallaDotsaChar43twilightThemeEn_27dc901de7ce932acdf2976211f906c7Node_modulesAtsallaDotsaTwilightThemeEngineDottwilightLocaleRoute,
 } as any)
-const slugDotpageIdRoute = slugDotpageIdRouteImport.update({
+const pageSingleComplianceRoute = pageSingleComplianceRouteImport.update({
   id: '/$slug/page-{$id}',
   path: '/$slug/page-{$id}',
   getParentRoute: () =>
     DotDotDotDotNode_modulesDotpnpmAtsallaDotsaChar43twilightThemeEn_27dc901de7ce932acdf2976211f906c7Node_modulesAtsallaDotsaTwilightThemeEngineDottwilightLocaleRoute,
 } as any)
-const slugDotpidRoute = slugDotpidRouteImport.update({
+const productSingleComplianceRoute = productSingleComplianceRouteImport.update({
   id: '/$slug/p{$id}',
   path: '/$slug/p{$id}',
   getParentRoute: () =>
@@ -265,9 +265,9 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/search': typeof searchRoute
   '/{-$locale}/testimonials': typeof testimonialsRoute
   '/{-$locale}/$slug/brand-{$id}': typeof slugDotbrandIdRoute
-  '/{-$locale}/$slug/c{$id}': typeof slugDotcidRoute
-  '/{-$locale}/$slug/page-{$id}': typeof slugDotpageIdRoute
-  '/{-$locale}/$slug/p{$id}': typeof slugDotpidRoute
+  '/{-$locale}/$slug/c{$id}': typeof productListComplianceRoute
+  '/{-$locale}/$slug/page-{$id}': typeof pageSingleComplianceRoute
+  '/{-$locale}/$slug/p{$id}': typeof productSingleComplianceRoute
   '/{-$locale}/$slug/tag-{$id}': typeof slugDottagIdRoute
   '/{-$locale}/account/notifications': typeof accountDotnotificationsRoute
   '/{-$locale}/account/orders': typeof accountDotordersRoute
@@ -299,9 +299,9 @@ export interface FileRoutesByTo {
   '/{-$locale}/search': typeof searchRoute
   '/{-$locale}/testimonials': typeof testimonialsRoute
   '/{-$locale}/$slug/brand-{$id}': typeof slugDotbrandIdRoute
-  '/{-$locale}/$slug/c{$id}': typeof slugDotcidRoute
-  '/{-$locale}/$slug/page-{$id}': typeof slugDotpageIdRoute
-  '/{-$locale}/$slug/p{$id}': typeof slugDotpidRoute
+  '/{-$locale}/$slug/c{$id}': typeof productListComplianceRoute
+  '/{-$locale}/$slug/page-{$id}': typeof pageSingleComplianceRoute
+  '/{-$locale}/$slug/p{$id}': typeof productSingleComplianceRoute
   '/{-$locale}/$slug/tag-{$id}': typeof slugDottagIdRoute
   '/{-$locale}/account/notifications': typeof accountDotnotificationsRoute
   '/{-$locale}/account/orders': typeof accountDotordersRoute
@@ -335,9 +335,9 @@ export interface FileRoutesById {
   '/{-$locale}/search': typeof searchRoute
   '/{-$locale}/testimonials': typeof testimonialsRoute
   '/{-$locale}/$slug/brand-{$id}': typeof slugDotbrandIdRoute
-  '/{-$locale}/$slug/c{$id}': typeof slugDotcidRoute
-  '/{-$locale}/$slug/page-{$id}': typeof slugDotpageIdRoute
-  '/{-$locale}/$slug/p{$id}': typeof slugDotpidRoute
+  '/{-$locale}/$slug/c{$id}': typeof productListComplianceRoute
+  '/{-$locale}/$slug/page-{$id}': typeof pageSingleComplianceRoute
+  '/{-$locale}/$slug/p{$id}': typeof productSingleComplianceRoute
   '/{-$locale}/$slug/tag-{$id}': typeof slugDottagIdRoute
   '/{-$locale}/account/notifications': typeof accountDotnotificationsRoute
   '/{-$locale}/account/orders': typeof accountDotordersRoute
@@ -570,21 +570,21 @@ declare module '@tanstack/react-router' {
       id: '/{-$locale}/$slug/c{$id}'
       path: '/$slug/c{$id}'
       fullPath: '/{-$locale}/$slug/c{$id}'
-      preLoaderRoute: typeof slugDotcidRouteImport
+      preLoaderRoute: typeof productListComplianceRouteImport
       parentRoute: typeof DotDotDotDotNode_modulesDotpnpmAtsallaDotsaChar43twilightThemeEn_27dc901de7ce932acdf2976211f906c7Node_modulesAtsallaDotsaTwilightThemeEngineDottwilightLocaleRoute
     }
     '/{-$locale}/$slug/page-{$id}': {
       id: '/{-$locale}/$slug/page-{$id}'
       path: '/$slug/page-{$id}'
       fullPath: '/{-$locale}/$slug/page-{$id}'
-      preLoaderRoute: typeof slugDotpageIdRouteImport
+      preLoaderRoute: typeof pageSingleComplianceRouteImport
       parentRoute: typeof DotDotDotDotNode_modulesDotpnpmAtsallaDotsaChar43twilightThemeEn_27dc901de7ce932acdf2976211f906c7Node_modulesAtsallaDotsaTwilightThemeEngineDottwilightLocaleRoute
     }
     '/{-$locale}/$slug/p{$id}': {
       id: '/{-$locale}/$slug/p{$id}'
       path: '/$slug/p{$id}'
       fullPath: '/{-$locale}/$slug/p{$id}'
-      preLoaderRoute: typeof slugDotpidRouteImport
+      preLoaderRoute: typeof productSingleComplianceRouteImport
       parentRoute: typeof DotDotDotDotNode_modulesDotpnpmAtsallaDotsaChar43twilightThemeEn_27dc901de7ce932acdf2976211f906c7Node_modulesAtsallaDotsaTwilightThemeEngineDottwilightLocaleRoute
     }
     '/{-$locale}/$slug/tag-{$id}': {
@@ -742,9 +742,9 @@ interface DotDotDotDotNode_modulesDotpnpmAtsallaDotsaChar43twilightThemeEn_27dc9
   searchRoute: typeof searchRoute
   testimonialsRoute: typeof testimonialsRoute
   slugDotbrandIdRoute: typeof slugDotbrandIdRoute
-  slugDotcidRoute: typeof slugDotcidRoute
-  slugDotpageIdRoute: typeof slugDotpageIdRoute
-  slugDotpidRoute: typeof slugDotpidRoute
+  productListComplianceRoute: typeof productListComplianceRoute
+  pageSingleComplianceRoute: typeof pageSingleComplianceRoute
+  productSingleComplianceRoute: typeof productSingleComplianceRoute
   slugDottagIdRoute: typeof slugDottagIdRoute
   brandsDotidRoute: typeof brandsDotidRoute
   tagsDotidRoute: typeof tagsDotidRoute
@@ -772,9 +772,9 @@ const DotDotDotDotNode_modulesDotpnpmAtsallaDotsaChar43twilightThemeEn_27dc901de
     searchRoute: searchRoute,
     testimonialsRoute: testimonialsRoute,
     slugDotbrandIdRoute: slugDotbrandIdRoute,
-    slugDotcidRoute: slugDotcidRoute,
-    slugDotpageIdRoute: slugDotpageIdRoute,
-    slugDotpidRoute: slugDotpidRoute,
+    productListComplianceRoute: productListComplianceRoute,
+    pageSingleComplianceRoute: pageSingleComplianceRoute,
+    productSingleComplianceRoute: productSingleComplianceRoute,
     slugDottagIdRoute: slugDottagIdRoute,
     brandsDotidRoute: brandsDotidRoute,
     tagsDotidRoute: tagsDotidRoute,
