@@ -1,0 +1,13 @@
+<header data-testid="store-header" class="store-header">
+  <div class="container flex items-center justify-between py-4">
+    <a data-testid="store-header-logo" href="{{ store.url }}" aria-label="{{ store.name }}">
+      <img src="{{ store.logo|cdn(175) }}" alt="{{ store.name }}" width="175" height="56">
+    </a>
+    <salla-menu data-testid="store-header-menu" source="main"></salla-menu>
+    <div class="flex items-center gap-3">
+      <salla-search data-testid="store-header-search" inline></salla-search>
+      <salla-user-menu data-testid="store-header-user-menu" avatar-only show-header></salla-user-menu>
+      <salla-cart-summary data-testid="store-header-cart"></salla-cart-summary>
+    </div>
+  </div>
+</header>
