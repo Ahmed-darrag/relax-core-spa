@@ -1,0 +1,11 @@
+<footer data-testid="store-footer" class="store-footer">
+  <div class="container py-8">
+    <a href="{{ link('/') }}"><strong>{{ store.name }}</strong></a>
+    {% if store.description %}<div>{{ store.description|raw }}</div>{% endif %}
+    <salla-menu data-testid="store-footer-menu" source="footer" with-cookie-preferences></salla-menu>
+    <salla-social data-testid="store-footer-social"></salla-social>
+    <salla-trust-badges data-testid="store-footer-trust-badges" {% if theme.settings.get('footer_is_dark') %}dark{% endif %}></salla-trust-badges>
+    <salla-payments data-testid="store-footer-payments"></salla-payments>
+  </div>
+  <span class="copyright-text">{% hook copyright %}</span>
+</footer>
